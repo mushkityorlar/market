@@ -6,9 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uz.pdp.market.entity.Auditable;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,15 +17,16 @@ import java.time.LocalDateTime;
 @Table(name = "input_product", schema = "market")
 public class OutputProduct extends Auditable {
 
-    @OneToOne
+    @ManyToOne
     private Product product;
 
-    private Integer amount;
+    @Column(nullable = false)
+    private Double amount;
 
     private Double price;
 
     private LocalDateTime expiry_date;
 
-    @OneToOne
+    @ManyToOne
     private OutCome outCome;
 }

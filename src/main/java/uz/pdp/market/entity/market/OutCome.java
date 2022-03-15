@@ -7,9 +7,7 @@ import lombok.Setter;
 import org.yaml.snakeyaml.error.Mark;
 import uz.pdp.market.entity.Auditable;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -22,11 +20,14 @@ import java.util.List;
 public class OutCome extends Auditable {
     private Date date;
 
-    @OneToMany
-    private List<Currency> currency;
+    @ManyToOne
+    private Currency currency;
 
+    @Column(nullable = false, unique = true)
     private String code;
 
-    @OneToMany
-    private List<Market> market;
+    private String factureNumber;
+
+    @ManyToOne
+    private Market market;
 }

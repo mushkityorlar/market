@@ -1,6 +1,5 @@
 package uz.pdp.market.entity.market;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

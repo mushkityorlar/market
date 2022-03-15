@@ -8,9 +8,8 @@ import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.organization.Organization;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
 @Getter
@@ -22,6 +21,6 @@ public class Market extends Auditable {
     private String name;
     private boolean active;
 
-    @OneToMany
-    private List<Organization> organization;
+    @ManyToOne
+    private Organization organization;
 }

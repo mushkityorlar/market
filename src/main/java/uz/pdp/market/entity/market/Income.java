@@ -7,8 +7,10 @@ import lombok.Setter;
 import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -20,11 +22,10 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "income", schema = "market")
 public class Income extends Auditable {
+    private Timestamp date;
 
-    private Date date;
-
-    @OneToMany
-    private List<Currency> currency;
+    @ManyToOne
+    private Currency currency;
 
     private String code;
 }
