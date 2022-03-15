@@ -2,7 +2,7 @@ package uz.pdp.market.entity.auth;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import uz.pdp.market.dto.base.Auditable;
+import uz.pdp.market.dto.base.GenericDto;
 import uz.pdp.market.enums.AuthRole;
 
 import javax.persistence.*;
@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthUser extends Auditable implements GrantedAuthority {
+public class AuthUser extends GenericDto implements GrantedAuthority {
     @Column(name = "username", nullable = false, length = 50)
     private String userName;
 

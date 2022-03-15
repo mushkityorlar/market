@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Builder
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Auditable implements BaseEntity {
+public class GenericDto implements Dto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
