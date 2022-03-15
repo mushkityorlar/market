@@ -27,7 +27,6 @@ public abstract class Auditable implements Dto {
     @Column(unique = true)
     protected Long id;
 
-
     @CreatedBy
     @Column(name = "created_by")
     private Long createdBy;

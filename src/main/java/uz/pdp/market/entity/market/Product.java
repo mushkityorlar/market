@@ -1,6 +1,7 @@
-package uz.pdp.market.entity.product;
+package uz.pdp.market.entity.market;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,27 +9,28 @@ import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.math.BigDecimal;
+import javax.persistence.Table;
 
+@Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Table(name = "product", schema = "market")
 public class Product extends Auditable {
-
     private String name;
 
     private String imgPath;
 
-    private String categoryId;
-
     private String code;
 
+    private String inCome;
+
+    private String outCome;
+
     @ManyToOne
-    private Measurement measurementId;
+    private Category category;
 
-    private BigDecimal inCome;
-
-    private BigDecimal outCome;
-
+    @ManyToOne
+    private Measurement measurement;
 }

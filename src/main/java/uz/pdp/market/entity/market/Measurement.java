@@ -1,20 +1,18 @@
-package uz.pdp.market.entity.product;
+package uz.pdp.market.entity.market;
 
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Table(name = "measurement", schema = "market")
 public class Measurement extends Auditable {
-
     private String name;
-
     private boolean active;
 }

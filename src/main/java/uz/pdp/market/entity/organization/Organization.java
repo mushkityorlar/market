@@ -28,16 +28,6 @@ public class Organization extends Auditable {
 
     @Enumerated(EnumType.STRING)
     private Status status;
-
-    @Builder(builderMethodName = "childBuilder")
-    public Organization(Long id, Long createdBy, Long updatedBy, LocalDateTime createdAt, LocalDateTime updatedAt, boolean deleted, String name, String email, String code, String website, Status status) {
-        super(id, createdBy, updatedBy, createdAt, updatedAt, deleted);
-        this.name = name;
-        this.email = email;
-        this.code = code;
-        this.website = website;
-        this.status = status;
-    }
 }
 
 
