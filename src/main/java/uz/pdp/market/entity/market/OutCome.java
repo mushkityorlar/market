@@ -1,9 +1,6 @@
 package uz.pdp.market.entity.market;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.yaml.snakeyaml.error.Mark;
 import uz.pdp.market.entity.Auditable;
 
@@ -16,6 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "outcome", schema = "market")
 public class OutCome extends Auditable {
     private Date date;

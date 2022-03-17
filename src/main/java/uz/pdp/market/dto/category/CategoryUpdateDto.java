@@ -13,7 +13,7 @@ public class CategoryUpdateDto extends GenericDto {
 
     private String name;
 
-    @Builder
+    @Builder(builderMethodName = "childBuilder")
     public CategoryUpdateDto(Long id, String name) {
         super(id);
         this.name = name;

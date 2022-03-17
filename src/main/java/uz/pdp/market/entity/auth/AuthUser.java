@@ -17,6 +17,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class AuthUser extends GenericDto implements GrantedAuthority {
     @Column(name = "username", nullable = false, length = 50)
     private String userName;

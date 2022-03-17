@@ -1,9 +1,6 @@
 package uz.pdp.market.entity.market;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.*;
@@ -15,6 +12,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "input_product", schema = "market")
 public class InputProduct extends Auditable {
 

@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "measurement", schema = "market")
 public class Measurement extends Auditable {
     private String name;
