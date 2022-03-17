@@ -25,6 +25,7 @@ import uz.pdp.market.properties.ServerProperties;
 import uz.pdp.market.repository.AuthUserRepository;
 import uz.pdp.market.service.AbstractService;
 import uz.pdp.market.utils.validator.Validator;
+import uz.pdp.market.utils.validator.auth.AuthUserValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,12 +33,12 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 @Service
-public class AuthUserService extends AbstractService<AuthUserRepository, Mapper, Validator> implements UserDetailsService {
+public class AuthUserService extends AbstractService<AuthUserRepository, Mapper, AuthUserValidator> implements UserDetailsService {
 
     private final ServerProperties serverProperties;
     private final ObjectMapper objectMapper;
 
-    protected AuthUserService(AuthUserRepository repository, Mapper mapper, Validator validator, ServerProperties serverProperties, ObjectMapper objectMapper) {
+    protected AuthUserService(AuthUserRepository repository, Mapper mapper, AuthUserValidator validator, ServerProperties serverProperties, ObjectMapper objectMapper) {
         super(repository, mapper, validator);
         this.serverProperties = serverProperties;
         this.objectMapper = objectMapper;
