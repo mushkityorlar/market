@@ -23,21 +23,18 @@ public class CategoryService implements AbstractService {
     private final CategoryRepository repository;
     private final CategoryMapper mapper;
 
-
     public ResponseEntity<DataDto<List<CategoryDto>>> getAll() {
         List<Category> factories = repository.findAllByDeletedFalse();
         return new ResponseEntity<>(new DataDto<>(mapper.toDto(factories), (long) factories.size()), HttpStatus.OK);
     }
 
-
     public ResponseEntity<DataDto<CategoryDto>> get(Long id) {
-        Optional<Category> factoryOptional = repository.findByIdAndDeletedFalse(id);
-        if (factoryOptional.isEmpty())
+        Optional<Category> categoryOptional = repository.findByIdAndDeletedFalse(id);
+        if (categoryOptional.isEmpty())
             return new ResponseEntity<>(new DataDto<>(AppErrorDto.builder().build()), HttpStatus.NOT_FOUND);
 
-        return new ResponseEntity<>(new DataDto<>(mapper.toDto(factoryOptional.get())), HttpStatus.OK);
+        return new ResponseEntity<>(new DataDto<>(mapper.toDto(categoryOptional.get())), HttpStatus.OK);
     }
-
 
     public ResponseEntity<DataDto<Boolean>> delete(Long id) {
         Optional<Category> optionalCategory = repository.findByIdAndDeletedFalse(id);
@@ -52,14 +49,14 @@ public class CategoryService implements AbstractService {
     }
 
     public ResponseEntity<DataDto<Boolean>> create(CategoryCreateDto dto) {
-        Category factory = mapper.fromCreateDto(dto);
-        repository.save(factory);
+        Category category = mapper.fromCreateDto(dto);
+        repository.save(category);
         return new ResponseEntity<>(new DataDto<>(true), HttpStatus.CREATED);
     }
 
     public ResponseEntity<DataDto<Boolean>> update(CategoryUpdateDto dto) {
-        Optional<Category> factoryOptional = repository.findByIdAndDeletedFalse(dto.getId());
-        if (factoryOptional.isEmpty()) {
+        Optional<Category> categoryOptional = repository.findByIdAndDeletedFalse(dto.getId());
+        if (categoryOptional.isEmpty()) {
             return new ResponseEntity<>(new DataDto<>(AppErrorDto
                     .builder()
                     .status(HttpStatus.NOT_FOUND)
@@ -68,9 +65,9 @@ public class CategoryService implements AbstractService {
             ), HttpStatus.CONFLICT);
         }
 
-        Category factory = mapper.fromUpdateDto(dto, factoryOptional.get());
+        Category category = mapper.fromUpdateDto(dto, categoryOptional.get());
 
-        repository.save(factory);
+        repository.save(category);
 
         return new ResponseEntity<>(new DataDto<>(true), HttpStatus.ACCEPTED);
     }
