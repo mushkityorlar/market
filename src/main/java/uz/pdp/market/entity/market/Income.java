@@ -1,9 +1,6 @@
 package uz.pdp.market.entity.market;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.Entity;
@@ -20,6 +17,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "income", schema = "market")
 public class Income extends Auditable {
     private Timestamp date;

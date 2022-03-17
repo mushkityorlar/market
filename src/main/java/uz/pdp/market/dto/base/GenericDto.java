@@ -9,10 +9,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Builder
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class GenericDto implements Dto {
+public abstract class GenericDto implements Dto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)

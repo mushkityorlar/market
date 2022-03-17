@@ -18,10 +18,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-@Builder
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Auditable implements Dto {
+public abstract class Auditable implements Dto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)

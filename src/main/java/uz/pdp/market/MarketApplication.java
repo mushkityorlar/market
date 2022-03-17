@@ -38,7 +38,7 @@ public class MarketApplication {
             System.out.println("encode = " + encode);
 
             AuthUser admin = AuthUser.childBuilder()
-                    .userName("manager")
+                    .userName("admin")
                     .password(encode)
                     .fullName("Abdukarimov Nodirbek")
                     .phone("+998943123858")
