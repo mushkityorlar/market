@@ -16,3 +16,4 @@ public class Measurement extends Auditable {
     private String name;
     private boolean active;
 }
+
