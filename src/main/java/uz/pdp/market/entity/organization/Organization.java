@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 public class Organization extends Auditable {
-
     private String name;
 
     private String email;
