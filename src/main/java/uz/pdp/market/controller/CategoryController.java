@@ -6,7 +6,7 @@ import uz.pdp.market.dto.category.CategoryCreateDto;
 import uz.pdp.market.dto.category.CategoryDto;
 import uz.pdp.market.dto.category.CategoryUpdateDto;
 import uz.pdp.market.dto.response.DataDto;
-import uz.pdp.market.service.CategoryService;
+import uz.pdp.market.service.category.CategoryService;
 
 import javax.validation.Valid;
 import java.util.List;

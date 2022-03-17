@@ -2,7 +2,6 @@ package uz.pdp.market.service.auth;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -21,9 +20,11 @@ import uz.pdp.market.dto.auth.SessionDto;
 import uz.pdp.market.dto.response.AppErrorDto;
 import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.auth.AuthUser;
+import uz.pdp.market.mapper.Mapper;
 import uz.pdp.market.properties.ServerProperties;
 import uz.pdp.market.repository.AuthUserRepository;
 import uz.pdp.market.service.AbstractService;
+import uz.pdp.market.utils.validator.Validator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,12 +32,16 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 @Service
-@RequiredArgsConstructor
-public class AuthUserService implements AbstractService, UserDetailsService {
+public class AuthUserService extends AbstractService<AuthUserRepository, Mapper, Validator> implements UserDetailsService {
 
-    private final AuthUserRepository authUserRepository;
     private final ServerProperties serverProperties;
     private final ObjectMapper objectMapper;
+
+    protected AuthUserService(AuthUserRepository repository, Mapper mapper, Validator validator, ServerProperties serverProperties, ObjectMapper objectMapper) {
+        super(repository, mapper, validator);
+        this.serverProperties = serverProperties;
+        this.objectMapper = objectMapper;
+    }
 
     public ResponseEntity<DataDto<SessionDto>> getToken(AuthUserDto dto) {
 
@@ -74,7 +79,7 @@ public class AuthUserService implements AbstractService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        AuthUser user = authUserRepository.findAuthUserByUserName(userName).orElseThrow(() -> {
+        AuthUser user = repository.findAuthUserByUserName(userName).orElseThrow(() -> {
             throw new UsernameNotFoundException("User not found");
         });
         return User.builder()

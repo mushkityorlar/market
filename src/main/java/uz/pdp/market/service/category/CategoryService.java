@@ -1,6 +1,5 @@
-package uz.pdp.market.service;
+package uz.pdp.market.service.category;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,16 +11,19 @@ import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.market.Category;
 import uz.pdp.market.mapper.CategoryMapper;
 import uz.pdp.market.repository.CategoryRepository;
+import uz.pdp.market.service.AbstractService;
+import uz.pdp.market.utils.validator.category.CategoryValidator;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
-public class CategoryService implements AbstractService {
 
-    private final CategoryRepository repository;
-    private final CategoryMapper mapper;
+public class CategoryService extends AbstractService<CategoryRepository, CategoryMapper, CategoryValidator> {
+
+    protected CategoryService(CategoryRepository repository, CategoryMapper mapper, CategoryValidator validator) {
+        super(repository, mapper, validator);
+    }
 
     public ResponseEntity<DataDto<List<CategoryDto>>> getAll() {
         List<Category> factories = repository.findAllByDeletedFalse();

@@ -1,14 +1,11 @@
 package uz.pdp.market.dto.category;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import uz.pdp.market.dto.base.GenericDto;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@NoArgsConstructor
 public class CategoryDto extends GenericDto {
     private String name;
     private boolean active;
