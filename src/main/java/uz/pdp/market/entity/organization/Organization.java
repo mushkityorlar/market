@@ -21,11 +21,13 @@ import java.time.LocalDateTime;
 public class Organization extends Auditable {
     private String name;
 
-    private String email;
+    private String website;
+
+    private String phone;
 
     private String code;
 
-    private String website;
+    private String email;
 
     @Enumerated(EnumType.STRING)
     private Status status;
