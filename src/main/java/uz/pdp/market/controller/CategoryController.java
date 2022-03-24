@@ -19,7 +19,7 @@ public class CategoryController extends AbstractController<CategoryService> {
     }
 
     @RequestMapping(value = PATH + "/category", method = RequestMethod.POST)
-    public ResponseEntity<DataDto<Boolean>> create(@Valid @RequestBody CategoryCreateDto dto) {
+    public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody CategoryCreateDto dto) {
         return service.create(dto);
     }
 
@@ -42,5 +42,4 @@ public class CategoryController extends AbstractController<CategoryService> {
     public ResponseEntity<DataDto<Boolean>> delete(@PathVariable Long id) {
         return service.delete(id);
     }
-
 }

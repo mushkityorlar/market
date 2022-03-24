@@ -25,7 +25,7 @@ public interface GenericCrudService<
         C extends GenericCriteria,
         K extends Serializable> extends GenericService<D, C, K> {
 
-    ResponseEntity<DataDto<Boolean>> create(CD createDto);
+    ResponseEntity<DataDto<Long>> create(CD createDto);
 
     ResponseEntity<DataDto<Boolean>> delete(K id);
 
