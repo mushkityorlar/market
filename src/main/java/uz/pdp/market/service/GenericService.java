@@ -19,7 +19,7 @@ public interface GenericService<
         C extends GenericCriteria,
         K extends Serializable> extends BaseService {
 
-    ResponseEntity<DataDto<List<D>>> getAll(C criteria);
+    ResponseEntity<DataDto<List<D>>> getAll();
 
     ResponseEntity<DataDto<D>> get(K id);
 
