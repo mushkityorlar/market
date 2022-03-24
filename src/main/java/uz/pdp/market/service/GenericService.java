@@ -1,7 +1,9 @@
 package uz.pdp.market.service;
 
+import org.springframework.http.ResponseEntity;
 import uz.pdp.market.criteria.GenericCriteria;
 import uz.pdp.market.dto.base.GenericDto;
+import uz.pdp.market.dto.response.DataDto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,9 +19,9 @@ public interface GenericService<
         C extends GenericCriteria,
         K extends Serializable> extends BaseService {
 
-    List<D> getAll(C criteria);
+    ResponseEntity<DataDto<List<D>>> getAll(C criteria);
 
-    D get(K id);
+    ResponseEntity<DataDto<D>> get(K id);
 
     Long totalCount(C criteria);
 }

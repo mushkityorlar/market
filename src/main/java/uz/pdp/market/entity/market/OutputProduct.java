@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "input_product", schema = "market")
+@Table(name = "output_product", schema = "market")
 public class OutputProduct extends Auditable {
 
     @ManyToOne
