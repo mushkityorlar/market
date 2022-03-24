@@ -22,10 +22,15 @@ public class InputProduct extends Auditable {
     @Column(nullable = false)
     private Integer amount;
 
-    private Double price;
+    @ManyToOne
+    private Measurement measurement;
+
+    private Double incomePrice;
+
+    private Double outcomePrice;
 
     private Date expireDate;
 
     @ManyToOne
-    private Income income;
+    private Currency currency;
 }

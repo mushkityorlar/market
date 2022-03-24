@@ -2,6 +2,7 @@ package uz.pdp.market.entity.market;
 
 import lombok.*;
 import uz.pdp.market.entity.Auditable;
+import uz.pdp.market.entity.auth.AuthUser;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "input_product", schema = "market")
+@Table(name = "output_product", schema = "market")
 public class OutputProduct extends Auditable {
 
     @ManyToOne
@@ -23,8 +24,16 @@ public class OutputProduct extends Auditable {
 
     private Double price;
 
-    private LocalDateTime expiry_date;
+    private Double discountedPrice;
 
     @ManyToOne
-    private OutCome outCome;
+    private AuthUser selledBy;
+
+    @ManyToOne
+    private Currency currency;
+
+    @OneToOne
+    private InputProduct inputProduct;
+
+    private LocalDateTime expiry_date;
 }

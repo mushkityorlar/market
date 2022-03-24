@@ -17,6 +17,7 @@ import javax.persistence.Table;
 @Table(name = "market", schema = "market")
 public class Market extends Auditable {
     private String name;
+
     private boolean active;
 
     @ManyToOne

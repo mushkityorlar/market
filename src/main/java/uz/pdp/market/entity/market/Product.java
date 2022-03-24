@@ -6,7 +6,9 @@ import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,15 +22,9 @@ public class Product extends Auditable {
 
     private String imgPath;
 
-    private String code;
-
-    private String inCome;
-
-    private String outCome;
-
     @ManyToOne
     private Category category;
 
-    @ManyToOne
-    private Measurement measurement;
+    @OneToMany
+    private List<Market> markets;
 }

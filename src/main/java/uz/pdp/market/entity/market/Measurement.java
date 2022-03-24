@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Table(name = "measurement", schema = "market")
 public class Measurement extends Auditable {
     private String name;
+
     private boolean active;
 }
 

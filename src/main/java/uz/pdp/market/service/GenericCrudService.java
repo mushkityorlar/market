@@ -1,8 +1,10 @@
 package uz.pdp.market.service;
 
+import org.springframework.http.ResponseEntity;
 import uz.pdp.market.criteria.GenericCriteria;
 import uz.pdp.market.dto.base.Dto;
 import uz.pdp.market.dto.base.GenericDto;
+import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.BaseEntity;
 
 import java.io.Serializable;
@@ -23,10 +25,9 @@ public interface GenericCrudService<
         C extends GenericCriteria,
         K extends Serializable> extends GenericService<D, C, K> {
 
-    K create(CD createDto);
+    ResponseEntity<DataDto<Boolean>> create(CD createDto);
 
-    Void delete(K id);
+    ResponseEntity<DataDto<Boolean>> delete(K id);
 
-    Void update(UD updateDto);
-
+    ResponseEntity<DataDto<Boolean>> update(UD updateDto);
 }

@@ -17,6 +17,6 @@ import java.time.LocalDateTime;
 @Table(name = "category", schema = "market")
 public class Category extends Auditable {
     private String name;
-    private boolean active;
 
+    private boolean active;
 }
