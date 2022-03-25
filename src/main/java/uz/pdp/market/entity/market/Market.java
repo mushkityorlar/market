@@ -2,6 +2,7 @@ package uz.pdp.market.entity.market;
 
 import lombok.*;
 import uz.pdp.market.entity.Auditable;
+import uz.pdp.market.entity.BaseEntity;
 import uz.pdp.market.entity.organization.Organization;
 
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Builder
 @Table(name = "market", schema = "market")
-public class Market extends Auditable {
+public class Market extends Auditable implements BaseEntity {
     private String name;
 
     private boolean active;

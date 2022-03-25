@@ -1,6 +1,5 @@
 package uz.pdp.market.mapper;
 
-
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 

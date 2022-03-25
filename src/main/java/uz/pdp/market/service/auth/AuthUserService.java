@@ -21,11 +21,10 @@ import uz.pdp.market.dto.response.AppErrorDto;
 import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.auth.AuthUser;
 import uz.pdp.market.mapper.AuthUserMapper;
-import uz.pdp.market.mapper.Mapper;
+import uz.pdp.market.mapper.AuthUserMapper;
 import uz.pdp.market.properties.ServerProperties;
 import uz.pdp.market.repository.AuthUserRepository;
 import uz.pdp.market.service.AbstractService;
-import uz.pdp.market.utils.validator.Validator;
 import uz.pdp.market.utils.validator.auth.AuthUserValidator;
 
 import javax.servlet.http.HttpServletRequest;
