@@ -30,6 +30,7 @@ public class InputProductCreateDto implements Dto {
     private String currencyId;
 
     @Builder()
+
     public InputProductCreateDto(String productId, Integer amount, Measurement measurement, Double incomePrice, Double outcomePrice, Date expireDate, String currencyId) {
         this.productId = productId;
         this.amount = amount;
