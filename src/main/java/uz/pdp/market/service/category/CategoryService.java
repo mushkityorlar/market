@@ -65,8 +65,8 @@ public class CategoryService extends AbstractService<CategoryRepository, Categor
 
     @Override
     public ResponseEntity<DataDto<List<CategoryDto>>> getAll() {
-        List<Category> factories = repository.findAllByDeletedFalse();
-        return new ResponseEntity<>(new DataDto<>(mapper.toDto(factories), (long) factories.size()), HttpStatus.OK);
+        List<Category> categories = repository.findAllByDeletedFalse();
+        return new ResponseEntity<>(new DataDto<>(mapper.toDto(categories), (long) categories.size()), HttpStatus.OK);
     }
 
     @Override
