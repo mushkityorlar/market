@@ -20,6 +20,7 @@ import uz.pdp.market.dto.auth.SessionDto;
 import uz.pdp.market.dto.response.AppErrorDto;
 import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.auth.AuthUser;
+import uz.pdp.market.mapper.AuthUserMapper;
 import uz.pdp.market.mapper.Mapper;
 import uz.pdp.market.properties.ServerProperties;
 import uz.pdp.market.repository.AuthUserRepository;
@@ -33,19 +34,18 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 @Service
-public class AuthUserService extends AbstractService<AuthUserRepository, Mapper, AuthUserValidator> implements UserDetailsService {
+public class AuthUserService extends AbstractService<AuthUserRepository, AuthUserMapper, AuthUserValidator> implements UserDetailsService {
 
     private final ServerProperties serverProperties;
     private final ObjectMapper objectMapper;
 
-    protected AuthUserService(AuthUserRepository repository, Mapper mapper, AuthUserValidator validator, ServerProperties serverProperties, ObjectMapper objectMapper) {
+    protected AuthUserService(AuthUserRepository repository, AuthUserMapper mapper, AuthUserValidator validator, ServerProperties serverProperties, ObjectMapper objectMapper) {
         super(repository, mapper, validator);
         this.serverProperties = serverProperties;
         this.objectMapper = objectMapper;
     }
 
     public ResponseEntity<DataDto<SessionDto>> getToken(AuthUserDto dto) {
-
         try {
             HttpClient httpclient = HttpClientBuilder.create().build();
             HttpPost httppost = new HttpPost(serverProperties.getServerUrl() + "/api/login");

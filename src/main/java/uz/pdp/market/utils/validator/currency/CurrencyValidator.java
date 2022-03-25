@@ -1,8 +1,8 @@
-package uz.pdp.market.utils.validator.category;
+package uz.pdp.market.utils.validator.currency;
 
 import org.springframework.stereotype.Component;
 import uz.pdp.market.utils.validator.Validator;
 
 @Component
-public class CategoryValidator implements Validator {
+public class CurrencyValidator implements Validator {
 }
