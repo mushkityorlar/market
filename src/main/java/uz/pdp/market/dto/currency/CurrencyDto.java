@@ -10,7 +10,7 @@ public class CurrencyDto extends GenericDto {
     private String name;
     private boolean active;
 
-    @Builder(builderMethodName = "childBuilder")
+    @Builder
     public CurrencyDto(Long id, String name, boolean active) {
         super(id);
         this.active = active;

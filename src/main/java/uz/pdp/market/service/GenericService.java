@@ -21,6 +21,10 @@ public interface GenericService<
 
     ResponseEntity<DataDto<List<D>>> getAll();
 
+    default ResponseEntity<DataDto<List<D>>> getAll(C c){
+     return null;
+    }
+
     ResponseEntity<DataDto<D>> get(K id);
 
     Long totalCount(C criteria);

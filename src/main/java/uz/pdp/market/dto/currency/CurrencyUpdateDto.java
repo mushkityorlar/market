@@ -9,7 +9,7 @@ import uz.pdp.market.dto.base.GenericDto;
 public class CurrencyUpdateDto extends GenericDto {
     private String name;
 
-    @Builder(builderMethodName = "childBuilder")
+    @Builder
     public CurrencyUpdateDto(Long id, String name) {
         super(id);
         this.name = name;

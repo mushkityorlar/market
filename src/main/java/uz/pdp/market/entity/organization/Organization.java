@@ -2,6 +2,7 @@ package uz.pdp.market.entity.organization;
 
 import lombok.*;
 import uz.pdp.market.entity.Auditable;
+import uz.pdp.market.entity.BaseEntity;
 import uz.pdp.market.enums.Status;
 
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Table(name = "organization", schema = "organization")
-public class Organization extends Auditable {
+public class Organization extends Auditable implements BaseEntity {
     private String name;
 
     private String website;

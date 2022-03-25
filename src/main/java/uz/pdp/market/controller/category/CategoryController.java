@@ -1,7 +1,8 @@
-package uz.pdp.market.controller;
+package uz.pdp.market.controller.category;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uz.pdp.market.controller.AbstractController;
 import uz.pdp.market.dto.category.CategoryCreateDto;
 import uz.pdp.market.dto.category.CategoryDto;
 import uz.pdp.market.dto.category.CategoryUpdateDto;

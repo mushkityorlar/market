@@ -3,11 +3,14 @@ package uz.pdp.market.entity.auth;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import uz.pdp.market.dto.base.GenericDto;
+import uz.pdp.market.entity.Auditable;
+import uz.pdp.market.entity.BaseEntity;
 import uz.pdp.market.entity.market.Market;
 import uz.pdp.market.entity.organization.Organization;
 import uz.pdp.market.enums.AuthRole;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -21,7 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AuthUser extends GenericDto implements GrantedAuthority {
+public class AuthUser extends Auditable implements BaseEntity,GrantedAuthority {
     @Column(name = "username", nullable = false, length = 50)
     private String userName;
 
@@ -42,10 +45,8 @@ public class AuthUser extends GenericDto implements GrantedAuthority {
 
     @ManyToOne
     private Organization organization;
-
-    @Builder(builderMethodName = "childBuilder")
-    public AuthUser(Long id, String userName, String password, String fullName, String phone, AuthRole role, Market market, Organization organization) {
-        super(id);
+    public AuthUser(Long id, Long createdBy, Long updatedBy, LocalDateTime createdAt, LocalDateTime updatedAt, boolean deleted, String userName, String password, String fullName, String phone, AuthRole role, Market market, Organization organization) {
+        super(id, createdBy, updatedBy, createdAt, updatedAt, deleted);
         this.userName = userName;
         this.password = password;
         this.fullName = fullName;
@@ -54,6 +55,7 @@ public class AuthUser extends GenericDto implements GrantedAuthority {
         this.market = market;
         this.organization = organization;
     }
+
 
     @Override
     public String getAuthority() {

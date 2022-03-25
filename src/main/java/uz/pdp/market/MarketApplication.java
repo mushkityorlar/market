@@ -34,14 +34,14 @@ public class MarketApplication {
         SpringApplication.run(MarketApplication.class, args);
     }
 
-    //    @Bean
+    @Bean
     CommandLineRunner runner() {
         return (args) -> {
             authUserRepository.deleteAll();
             String encode = passwordEncoder.encode("123");
             System.out.println("encode = " + encode);
 
-            AuthUser admin = AuthUser.childBuilder()
+            AuthUser admin = AuthUser.builder()
                     .userName("admin")
                     .password(encode)
                     .fullName("Abdukarimov Nodirbek")
