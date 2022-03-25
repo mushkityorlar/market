@@ -21,13 +21,13 @@ public interface OutputProductMapper extends BaseMapper<
         OutputProductUpdateDto>{
 
     @Override
-    OutputProductDto toDto(OutputProduct product);
+    OutputProductDto toDto(OutputProduct outputProduct);
 
     @Override
     List<OutputProductDto> toDto(List<OutputProduct> e);
 
     @Override
-    OutputProduct fromCreateDto(OutputProductCreateDto createDto);
+    OutputProduct fromCreateDto(OutputProductCreateDto outputProductCreateDto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     OutputProduct fromUpdateDto(OutputProductUpdateDto d, @MappingTarget OutputProduct outputProduct);

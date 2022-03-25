@@ -20,17 +20,17 @@ public interface MeasurementMapper extends BaseMapper<
         MeasurementCreateDto,
         MeasurementUpdateDto> {
     @Override
-    MeasurementDto toDto(Measurement market);
+    MeasurementDto toDto(Measurement measurement);
 
     @Override
     List<MeasurementDto> toDto(List<Measurement> e);
 
     @Override
-    Measurement fromCreateDto(MeasurementCreateDto marketCreateDto);
+    Measurement fromCreateDto(MeasurementCreateDto measurementCreateDto);
 
     @Override
     Measurement fromUpdateDto(MeasurementUpdateDto d);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Measurement fromUpdateDto(MeasurementUpdateDto d, @MappingTarget Measurement market);
+    Measurement fromUpdateDto(MeasurementUpdateDto d, @MappingTarget Measurement measurement);
 }

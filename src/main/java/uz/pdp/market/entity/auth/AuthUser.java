@@ -2,7 +2,6 @@ package uz.pdp.market.entity.auth;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import uz.pdp.market.dto.base.GenericDto;
 import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.BaseEntity;
 import uz.pdp.market.entity.market.Market;
@@ -11,7 +10,6 @@ import uz.pdp.market.enums.AuthRole;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "auth_user", indexes = {

@@ -1,6 +1,9 @@
 package uz.pdp.market.dto.category;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import uz.pdp.market.dto.base.GenericDto;
 
 @Getter

@@ -2,7 +2,6 @@ package uz.pdp.market.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import uz.pdp.market.entity.market.Category;
 import uz.pdp.market.entity.organization.Organization;
 
 import javax.validation.constraints.NotNull;

@@ -11,7 +11,6 @@ import uz.pdp.market.dto.organization.OrganizationUpdateDto;
 import uz.pdp.market.dto.response.AppErrorDto;
 import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.organization.Organization;
-import uz.pdp.market.entity.organization.Organization;
 import uz.pdp.market.mapper.OrganizationMapper;
 import uz.pdp.market.repository.OrganizationRepository;
 import uz.pdp.market.service.AbstractService;

@@ -1,7 +1,10 @@
 package uz.pdp.market.dto.currency;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import uz.pdp.market.dto.base.Dto;
 
 import javax.validation.constraints.NotBlank;
@@ -11,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class CurrencyCreateDto implements Dto {
     @Schema(required = true)
-    @NotBlank(message = "Category name cannot be null or blank")
+    @NotBlank(message = "Currency name cannot be null or blank")
     private String name;
 
     @Builder

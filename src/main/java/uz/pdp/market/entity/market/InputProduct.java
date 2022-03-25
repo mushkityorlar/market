@@ -2,9 +2,12 @@ package uz.pdp.market.entity.market;
 
 import lombok.*;
 import uz.pdp.market.entity.Auditable;
+import uz.pdp.market.entity.BaseEntity;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -14,7 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Table(name = "input_product", schema = "market")
-public class InputProduct extends Auditable {
+public class InputProduct extends Auditable implements BaseEntity {
 
     @ManyToOne
     private Product product;
@@ -33,4 +36,6 @@ public class InputProduct extends Auditable {
 
     @ManyToOne
     private Currency currency;
+
+
 }

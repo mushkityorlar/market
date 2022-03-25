@@ -3,7 +3,6 @@ package uz.pdp.market.controller.organization;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.market.controller.AbstractController;
-import uz.pdp.market.criteria.OrganizationCriteria;
 import uz.pdp.market.dto.organization.OrganizationCreateDto;
 import uz.pdp.market.dto.organization.OrganizationDto;
 import uz.pdp.market.dto.organization.OrganizationUpdateDto;

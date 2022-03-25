@@ -9,14 +9,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import uz.pdp.market.entity.auth.AuthUser;
-import uz.pdp.market.entity.market.Market;
-import uz.pdp.market.entity.organization.Organization;
 import uz.pdp.market.enums.AuthRole;
 import uz.pdp.market.properties.OpenApiProperties;
 import uz.pdp.market.properties.ServerProperties;
 import uz.pdp.market.repository.AuthUserRepository;
-
-import java.util.List;
 
 @EnableConfigurationProperties({
         OpenApiProperties.class,

@@ -1,7 +1,10 @@
 package uz.pdp.market.dto.category;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import uz.pdp.market.dto.base.Dto;
 
 import javax.validation.constraints.NotBlank;
