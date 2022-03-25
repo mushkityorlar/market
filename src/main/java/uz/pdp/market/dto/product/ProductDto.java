@@ -1,32 +1,35 @@
 package uz.pdp.market.dto.product;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import uz.pdp.market.dto.base.GenericDto;
+import uz.pdp.market.entity.market.Category;
+import uz.pdp.market.entity.market.Market;
+
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-
 public class ProductDto extends GenericDto {
     private String name;
 
     private String imgPath;
 
-    private String code;
+    private Category category;
 
-    private String inCome;
-
-    private String outCome;
-
+    private List<Market> markets;
 
     @Builder(builderMethodName = "childBuilder")
-    public ProductDto(Long id, String name, String imgPath, String code, String inCome, String outCome) {
+    public ProductDto(Long id, String name, String imgPath, Category category, List<Market> markets) {
         super(id);
         this.name = name;
         this.imgPath = imgPath;
-        this.code = code;
-        this.inCome = inCome;
-        this.outCome = outCome;
+        this.category = category;
+        this.markets = markets;
     }
 }
