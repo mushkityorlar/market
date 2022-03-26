@@ -1,0 +1,50 @@
+package uz.pdp.market.dto.orderList;
+
+import lombok.*;
+import uz.pdp.market.dto.base.GenericDto;
+
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class OrderListDto extends GenericDto {
+
+    private String categoryId;
+
+    private String name;
+
+    private String description;
+
+    private int amount;
+
+    private int inAdvance;
+
+    private String currencyId;
+
+    private LocalDateTime registeredDate;
+
+    private LocalDateTime completeDate;
+
+    private String clientPhone;
+
+    private String madeById;
+
+
+    @Builder(builderMethodName = "childBuilder")
+    public OrderListDto(Long id, String categoryId, String name, String description, int amount, int inAdvance, String currencyId, LocalDateTime registeredDate, LocalDateTime completeDate, String clientPhone, String madeById) {
+        super(id);
+        this.categoryId = categoryId;
+        this.name = name;
+        this.description = description;
+        this.amount = amount;
+        this.inAdvance = inAdvance;
+        this.currencyId = currencyId;
+        this.registeredDate = registeredDate;
+        this.completeDate = completeDate;
+        this.clientPhone = clientPhone;
+        this.madeById = madeById;
+    }
+}
