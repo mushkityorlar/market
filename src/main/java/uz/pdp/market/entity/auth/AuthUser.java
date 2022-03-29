@@ -6,10 +6,9 @@ import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.BaseEntity;
 import uz.pdp.market.entity.market.Market;
 import uz.pdp.market.entity.organization.Organization;
-import uz.pdp.market.enums.AuthRole;
+import uz.pdp.market.enums.Role;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "auth_user", indexes = {
@@ -36,24 +35,17 @@ public class AuthUser extends Auditable implements BaseEntity,GrantedAuthority {
     private String phone;
 
     @Enumerated(EnumType.STRING)
-    private AuthRole role;
+    private Role role;
 
     @ManyToOne
     private Market market;
 
     @ManyToOne
     private Organization organization;
-    public AuthUser(Long id, Long createdBy, Long updatedBy, LocalDateTime createdAt, LocalDateTime updatedAt, boolean deleted, String userName, String password, String fullName, String phone, AuthRole role, Market market, Organization organization) {
-        super(id, createdBy, updatedBy, createdAt, updatedAt, deleted);
-        this.userName = userName;
-        this.password = password;
-        this.fullName = fullName;
-        this.phone = phone;
-        this.role = role;
-        this.market = market;
-        this.organization = organization;
-    }
 
+    private String chatId;
+
+    private String state;
 
     @Override
     public String getAuthority() {

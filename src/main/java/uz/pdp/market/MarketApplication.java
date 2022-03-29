@@ -7,9 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import uz.pdp.market.entity.auth.AuthUser;
-import uz.pdp.market.enums.AuthRole;
+import uz.pdp.market.enums.Role;
 import uz.pdp.market.properties.OpenApiProperties;
 import uz.pdp.market.properties.ServerProperties;
 import uz.pdp.market.repository.AuthUserRepository;
@@ -21,6 +22,7 @@ import uz.pdp.market.repository.AuthUserRepository;
 @OpenAPIDefinition
 @SpringBootApplication
 @RequiredArgsConstructor
+@EnableScheduling
 public class MarketApplication {
 
     private final AuthUserRepository authUserRepository;
@@ -30,7 +32,7 @@ public class MarketApplication {
         SpringApplication.run(MarketApplication.class, args);
     }
 
-    @Bean
+//    @Bean
     CommandLineRunner runner() {
         return (args) -> {
             authUserRepository.deleteAll();
@@ -42,7 +44,7 @@ public class MarketApplication {
                     .password(encode)
                     .fullName("Abdukarimov Nodirbek")
                     .phone("+998943123858")
-                    .role(AuthRole.ADMIN)
+                    .role(Role.ADMIN)
                     .build();
             authUserRepository.save(admin);
         };

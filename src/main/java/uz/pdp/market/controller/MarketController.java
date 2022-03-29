@@ -17,6 +17,7 @@ public class MarketController extends AbstractController<MarketService> {
     public MarketController(MarketService service) {
         super(service);
     }
+
     @RequestMapping(value = PATH + "/market", method = RequestMethod.POST)
     public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody MarketCreateDto dto) {
         return service.create(dto);

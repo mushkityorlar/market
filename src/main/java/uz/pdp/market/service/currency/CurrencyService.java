@@ -42,7 +42,7 @@ public class CurrencyService extends AbstractService<CurrencyRepository, Currenc
                     .status(HttpStatus.NOT_FOUND)
                     .build()
             ), HttpStatus.NOT_FOUND);
-        repository.delete(optionalCurrency.get());
+        repository.softDelete("" + optionalCurrency.get().getId());
         return new ResponseEntity<>(new DataDto<>(true), HttpStatus.NO_CONTENT);
     }
 

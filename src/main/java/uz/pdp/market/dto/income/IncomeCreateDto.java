@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uz.pdp.market.dto.base.Dto;
-import uz.pdp.market.dto.base.GenericDto;
 
 import java.time.LocalDateTime;
 

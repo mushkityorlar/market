@@ -33,7 +33,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 @Service
-public class AuthUserService extends AbstractService<AuthUserRepository, Mapper, AuthUserValidator> implements UserDetailsService {
+public class AuthUserService extends AbstractService<AuthUserRepository, AuthUserMapper, AuthUserValidator> implements UserDetailsService {
 
     private final ServerProperties serverProperties;
     private final ObjectMapper objectMapper;
@@ -92,5 +92,10 @@ public class AuthUserService extends AbstractService<AuthUserRepository, Mapper,
                 .disabled(false)
                 .credentialsExpired(false)
                 .build();
+    }
+
+    public AuthUserDto getByChatId(String chatID) {
+        AuthUser authUser = repository.findByChatId(chatID);
+        return mapper.toDto(authUser);
     }
 }
