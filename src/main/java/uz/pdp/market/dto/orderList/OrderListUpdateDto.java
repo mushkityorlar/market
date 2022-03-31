@@ -13,7 +13,7 @@ public class OrderListUpdateDto extends GenericDto {
 
     private String description;
 
-    private int amount;
+    private double amount;
 
     private int inAdvance;
 
@@ -29,7 +29,7 @@ public class OrderListUpdateDto extends GenericDto {
 
     @Builder(builderMethodName = "childBuilder")
 
-    public OrderListUpdateDto(Long id, String categoryId, String name, String description, int amount, int inAdvance, String currencyId, LocalDateTime registeredDate, LocalDateTime completeDate, String clientPhone, String madeById) {
+    public OrderListUpdateDto(Long id, String categoryId, String name, String description, double amount, int inAdvance, String currencyId, LocalDateTime registeredDate, LocalDateTime completeDate, String clientPhone, String madeById) {
         super(id);
         this.categoryId = categoryId;
         this.name = name;

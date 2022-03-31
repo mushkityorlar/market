@@ -5,10 +5,7 @@ import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.BaseEntity;
 import uz.pdp.market.entity.auth.AuthUser;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -19,22 +16,27 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "debt_list", schema = "market")
 public class DebtList extends Auditable implements BaseEntity {
+
     @ManyToOne
+    @JoinColumn(name = "lender_id" , referencedColumnName = "id")
     private AuthUser lender;
 
     @ManyToOne
+    @JoinColumn(name = "borrow_id" , referencedColumnName = "id")
     private AuthUser borrower;
 
+    @Column(length = 50)
     private String description;
 
     @Column(nullable = false)
-    private int amount;
+    private double amount;
 
     @ManyToOne
+    @JoinColumn(name = "currency_id" , referencedColumnName = "id")
     private Currency currency;
 
     private LocalDateTime getDate;
 
-    private LocalDateTime replyDate;
+    private LocalDateTime returnDate;
 
 }

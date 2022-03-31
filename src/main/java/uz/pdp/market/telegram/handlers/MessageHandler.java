@@ -31,7 +31,7 @@ public class MessageHandler {
         AuthUserDto user = userService.getByChatId(chatId);
         String text = message.getText();
 
-        service.sayHi(message);
+//        service.sayHi(message);
 
         if (Objects.isNull(text)) {
             message.setText("ok");

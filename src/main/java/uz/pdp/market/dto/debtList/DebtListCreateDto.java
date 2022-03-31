@@ -21,23 +21,23 @@ public class DebtListCreateDto implements Dto {
 
     private String description;
 
-    private int amount;
+    private double amount;
 
     private String currencyId;
 
     private LocalDateTime getDate;
 
-    private LocalDateTime replyDate;
+    private LocalDateTime returnDate;
 
     @Builder
 
-    public DebtListCreateDto(String lenderId, String borrowerId, String description, int amount, String currencyId, LocalDateTime getDate, LocalDateTime replyDate) {
+    public DebtListCreateDto(String lenderId, String borrowerId, String description, double amount, String currencyId, LocalDateTime getDate, LocalDateTime returnDate) {
         this.lenderId = lenderId;
         this.borrowerId = borrowerId;
         this.description = description;
         this.amount = amount;
         this.currencyId = currencyId;
         this.getDate = getDate;
-        this.replyDate = replyDate;
+        this.returnDate = returnDate;
     }
 }

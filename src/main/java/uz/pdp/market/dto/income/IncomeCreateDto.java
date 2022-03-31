@@ -15,18 +15,20 @@ public class IncomeCreateDto implements Dto {
 
     private String tittle;
     private String description;
-    private int amount;
-    private String currencyId;
+    private double amount;
+    private Long measurementId;
+    private Double price;
+    private Long currencyId;
     private LocalDateTime date;
-    private String madeById;
 
     @Builder
-    public IncomeCreateDto(String tittle, String description, int amount, String currencyId, LocalDateTime date, String madeById) {
+    public IncomeCreateDto(String tittle, String description, double amount, Long measurementId, Double price, Long currencyId, LocalDateTime date/* String madeById*/) {
         this.tittle = tittle;
         this.description = description;
         this.amount = amount;
+        this.measurementId = measurementId;
+        this.price = price;
         this.currencyId = currencyId;
         this.date = date;
-        this.madeById = madeById;
     }
 }

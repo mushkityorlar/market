@@ -3,12 +3,8 @@ package uz.pdp.market.entity.market;
 import lombok.*;
 import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.BaseEntity;
-import uz.pdp.market.entity.auth.AuthUser;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -19,18 +15,27 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "income", schema = "market")
 public class Income extends Auditable implements BaseEntity {
+
+    @Column(length = 50)
     private String tittle;
 
+    @Column(length = 50)
     private String description;
 
     @Column(nullable = false)
-    private int amount;
+    private double amount;
 
     @ManyToOne
+    @JoinColumn(name = "measurement_id" , referencedColumnName = "id")
+    private Measurement measurement;
+
+    @Column(nullable = false, length = 50)
+    private Double price;
+
+    @ManyToOne
+    @JoinColumn(name = "currency_id" , referencedColumnName = "id")
     private Currency currency;
 
     private LocalDateTime date;
 
-    @ManyToOne
-    private AuthUser madeBy;
 }

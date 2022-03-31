@@ -12,23 +12,23 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class OutputProductDto extends GenericDto {
-    private Double amount;
+    private double amount;
     private Double price;
     private Double discountedPrice;
-    private String soldById;
-    private String currencyId;
-    private String inputProductId;
+    private Long currencyId;
+    private Long measurementId;
+    private Long inputProductId;
     private LocalDateTime expiry_date;
 
     @Builder
 
-    public OutputProductDto(Long id, Double amount, Double price, Double discountedPrice, String soldById, String currencyId, String inputProductId, LocalDateTime expiry_date) {
+    public OutputProductDto(Long id, double amount, Double price, Double discountedPrice, Long currencyId, Long measurementId, Long inputProductId, LocalDateTime expiry_date) {
         super(id);
         this.amount = amount;
         this.price = price;
         this.discountedPrice = discountedPrice;
-        this.soldById = soldById;
         this.currencyId = currencyId;
+        this.measurementId = measurementId;
         this.inputProductId = inputProductId;
         this.expiry_date = expiry_date;
     }

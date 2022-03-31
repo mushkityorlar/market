@@ -12,7 +12,7 @@ public class OrderListCreateDto implements Dto {
 
     private String description;
 
-    private int amount;
+    private double amount;
 
     private int inAdvance;
 
@@ -28,7 +28,7 @@ public class OrderListCreateDto implements Dto {
 
     @Builder()
 
-    public OrderListCreateDto(String categoryId, String name, String description, int amount, int inAdvance, String currencyId, LocalDateTime registeredDate, LocalDateTime completeDate, String clientPhone, String madeById) {
+    public OrderListCreateDto(String categoryId, String name, String description, double amount, int inAdvance, String currencyId, LocalDateTime registeredDate, LocalDateTime completeDate, String clientPhone, String madeById) {
         this.categoryId = categoryId;
         this.name = name;
         this.description = description;

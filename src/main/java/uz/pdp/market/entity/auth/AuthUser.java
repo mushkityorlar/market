@@ -38,9 +38,11 @@ public class AuthUser extends Auditable implements BaseEntity,GrantedAuthority {
     private Role role;
 
     @ManyToOne
+    @JoinColumn(name = "market_id" , referencedColumnName = "id")
     private Market market;
 
     @ManyToOne
+    @JoinColumn(name = "organization_id" , referencedColumnName = "id")
     private Organization organization;
 
     private String chatId;

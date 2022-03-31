@@ -8,11 +8,9 @@ import uz.pdp.market.criteria.IncomeCriteria.IncomeCriteria;
 import uz.pdp.market.dto.income.IncomeCreateDto;
 import uz.pdp.market.dto.income.IncomeDto;
 import uz.pdp.market.dto.income.IncomeUpdateDto;
-import uz.pdp.market.dto.outputProduct.OutputProductDto;
 import uz.pdp.market.dto.response.AppErrorDto;
 import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.market.Income;
-import uz.pdp.market.entity.market.OutputProduct;
 import uz.pdp.market.mapper.IncomeMapper;
 import uz.pdp.market.repository.IncomeRepository;
 import uz.pdp.market.service.AbstractService;
@@ -84,7 +82,7 @@ public class IncomeService extends AbstractService<
     @Override
     public ResponseEntity<DataDto<IncomeDto>> get(Long id) {
         Optional<Income> income = repository.findByIdAndDeletedFalse(id);
-        return new ResponseEntity<>(new DataDto<>(mapper.toDto(income.get())),HttpStatus.OK);
+        return new ResponseEntity<>(new DataDto<>(mapper.toDto(income.get())), HttpStatus.OK);
     }
 
     @Override

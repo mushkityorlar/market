@@ -9,6 +9,9 @@ import uz.pdp.market.dto.outputProduct.OutputProductDto;
 import uz.pdp.market.dto.outputProduct.OutputProductUpdateDto;
 import uz.pdp.market.dto.response.AppErrorDto;
 import uz.pdp.market.dto.response.DataDto;
+import uz.pdp.market.entity.market.Currency;
+import uz.pdp.market.entity.market.InputProduct;
+import uz.pdp.market.entity.market.Measurement;
 import uz.pdp.market.entity.market.OutputProduct;
 import uz.pdp.market.mapper.OutputProductMapper;
 import uz.pdp.market.repository.OutputProductRepository;
@@ -35,13 +38,32 @@ public class OutputProductService extends AbstractService<
         super(repository, mapper, validator);
     }
 
-
     @Override
     public ResponseEntity<DataDto<Long>> create(OutputProductCreateDto createDto) {
         OutputProduct outputProduct = mapper.fromCreateDto(createDto);
-        repository.save(outputProduct);
-        return new ResponseEntity<>(new DataDto<>(outputProduct.getId()), HttpStatus.CREATED);
 
+        InputProduct inputProduct = new InputProduct();
+        inputProduct.setId(createDto.getInputProductId());
+
+        Currency currency = new Currency();
+        currency.setId(createDto.getCurrencyId());
+
+        Measurement measurement = new Measurement();
+        measurement.setId(createDto.getMeasurementId());
+
+        outputProduct.setInputProduct(inputProduct);
+        outputProduct.setCurrency(currency);
+        outputProduct.setMeasurement(measurement);
+        repository.save(outputProduct);
+
+        repository.insertToIncome
+
+                (outputProduct.getAmount(),
+                        outputProduct.getMeasurement().getId(),
+                        outputProduct.getPrice() == null ? outputProduct.getDiscountedPrice() : outputProduct.getPrice(),
+                        outputProduct.getCurrency().getId());
+
+        return new ResponseEntity<>(new DataDto<>(outputProduct.getId()), HttpStatus.CREATED);
     }
 
     @Override
@@ -77,7 +99,7 @@ public class OutputProductService extends AbstractService<
     @Override
     public ResponseEntity<DataDto<OutputProductDto>> get(Long id) {
         OutputProduct outputProduct = repository.findByIdAndDeletedFalse(id).get();
-        return new ResponseEntity<>(new DataDto<>(mapper.toDto(outputProduct)),HttpStatus.OK);
+        return new ResponseEntity<>(new DataDto<>(mapper.toDto(outputProduct)), HttpStatus.OK);
     }
 
     @Override

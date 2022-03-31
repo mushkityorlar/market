@@ -4,6 +4,7 @@ import lombok.Builder;
 import uz.pdp.market.dto.base.GenericDto;
 
 public class MarketUpdateDto extends GenericDto {
+
     private String name;
 
     private boolean active;
