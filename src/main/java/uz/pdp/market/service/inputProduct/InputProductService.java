@@ -20,7 +20,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class InputProductService extends AbstractService<InputProductRepository, InputProductMapper, InputProductValidator> implements GenericCrudService<InputProduct, InputProductDto, InputProductCreateDto, InputProductUpdateDto, GenericCriteria, Long> {
+public class InputProductService extends AbstractService<InputProductRepository,
+        InputProductMapper, InputProductValidator>
+        implements GenericCrudService<InputProduct,
+        InputProductDto, InputProductCreateDto,
+        InputProductUpdateDto, GenericCriteria, Long> {
 
     protected InputProductService(InputProductRepository repository, InputProductMapper mapper, InputProductValidator validator) {
         super(repository, mapper, validator);
