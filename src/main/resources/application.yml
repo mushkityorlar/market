@@ -1,6 +1,6 @@
 spring:
   datasource:
-    password: 5654
+    password: 2000
     username: postgres
     url: jdbc:postgresql://localhost:5432/market?currentSchemaName=market
     driver-class-name: org.postgresql.Driver
@@ -39,3 +39,11 @@ springdoc:
     path: swagger-ui
   api-docs:
     path: /api-docs
+
+logging:
+  level:
+    org:
+      zalando:
+        logbook: TRACE
+logbook:
+  exclude: api/v1/file/**
