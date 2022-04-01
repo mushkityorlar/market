@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
 import uz.pdp.market.entity.auth.AuthUser;
-import uz.pdp.market.enums.AuthRole;
+import uz.pdp.market.enums.Role;
 import uz.pdp.market.properties.OpenApiProperties;
 import uz.pdp.market.properties.ServerProperties;
 import uz.pdp.market.repository.AuthUserRepository;
@@ -34,7 +34,7 @@ public class MarketApplication {
         SpringApplication.run(MarketApplication.class, args);
     }
 
-  //  @Bean
+    //  @Bean
     CommandLineRunner runner() {
         return (args) -> {
             authUserRepository.deleteAll();
@@ -46,7 +46,7 @@ public class MarketApplication {
                     .password(encode)
                     .fullName("Abdukarimov Nodirbek")
                     .phone("+998943123858")
-                    .role(AuthRole.ADMIN)
+                    .role(Role.ADMIN)
                     .build();
             authUserRepository.save(admin);
         };

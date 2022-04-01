@@ -30,6 +30,10 @@ public class OrderList extends Auditable implements BaseEntity {
     @Column(nullable = false)
     private double amount;
 
+    @ManyToOne
+    @JoinColumn(name = "measurement_id",referencedColumnName = "id")
+    private Measurement measurement;
+
     private int inAdvance;
 
     @ManyToOne
@@ -43,7 +47,4 @@ public class OrderList extends Auditable implements BaseEntity {
     @Column(length = 20)
     private String clientPhone;
 
-    @ManyToOne
-    @JoinColumn(name = "made_by_id" , referencedColumnName = "id")
-    private AuthUser madeBy;
 }

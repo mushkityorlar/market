@@ -17,14 +17,14 @@ import java.util.Date;
 public class InputProduct extends Auditable implements BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "product_id" , referencedColumnName = "id")
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
     @Column(nullable = false)
     private Integer amount;
 
     @ManyToOne
-    @JoinColumn(name = "measurement_id" , referencedColumnName = "id")
+    @JoinColumn(name = "measurement_id", referencedColumnName = "id")
     private Measurement measurement;
 
     private Double incomePrice;
@@ -34,8 +34,10 @@ public class InputProduct extends Auditable implements BaseEntity {
     private Date expireDate;
 
     @ManyToOne
-    @JoinColumn(name = "currency_id" , referencedColumnName = "id")
+    @JoinColumn(name = "currency_id", referencedColumnName = "id")
     private Currency currency;
 
-
+    @ManyToOne
+    @JoinColumn(name = "market_id", referencedColumnName = "id")
+    private Market market;
 }

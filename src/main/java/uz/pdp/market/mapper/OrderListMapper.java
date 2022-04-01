@@ -26,7 +26,7 @@ public interface OrderListMapper extends BaseMapper<
     List<OrderListDto> toDto(List<OrderList> e);
 
     @Override
-    OrderList fromCreateDto(OrderListCreateDto orderListCreateDto);
+    OrderList fromCreateDto(OrderListCreateDto d);
 
     @Override
     OrderList fromUpdateDto(OrderListUpdateDto d);

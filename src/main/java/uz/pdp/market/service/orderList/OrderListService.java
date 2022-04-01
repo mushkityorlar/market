@@ -1,5 +1,6 @@
 package uz.pdp.market.service.orderList;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ import uz.pdp.market.dto.response.AppErrorDto;
 import uz.pdp.market.dto.response.DataDto;
 import uz.pdp.market.entity.market.OrderList;
 import uz.pdp.market.mapper.OrderListMapper;
+import uz.pdp.market.repository.AuthUserRepository;
+import uz.pdp.market.repository.CategoryRepository;
 import uz.pdp.market.repository.OrderListRepository;
 import uz.pdp.market.service.AbstractService;
 import uz.pdp.market.service.GenericCrudService;
@@ -22,13 +25,28 @@ import java.util.Optional;
 @Service
 public class OrderListService extends AbstractService<OrderListRepository, OrderListMapper, OrderListValidator> implements GenericCrudService<OrderList, OrderListDto, OrderListCreateDto, OrderListUpdateDto, GenericCriteria, Long> {
 
-    protected OrderListService(OrderListRepository repository, OrderListMapper mapper, OrderListValidator validator) {
+    private final CategoryRepository categoryRepository;
+    private final AuthUserRepository authUserRepository;
+
+    protected OrderListService(OrderListRepository repository, OrderListMapper mapper, OrderListValidator validator, CategoryRepository categoryRepository, AuthUserRepository authUserRepository) {
         super(repository, mapper, validator);
+        this.categoryRepository = categoryRepository;
+        this.authUserRepository = authUserRepository;
     }
 
     @Override
     public ResponseEntity<DataDto<Long>> create(OrderListCreateDto createDto) {
         OrderList orderList = mapper.fromCreateDto(createDto);
+        orderList.setAmount(createDto.getAmount());
+        orderList.setCategory(categoryRepository.findByIdAndDeletedFalse(Long.valueOf(createDto.getCategoryId())).get());
+        orderList.setClientPhone(createDto.getClientPhone());
+        orderList.setCompleteDate(createDto.getCompleteDate());
+        orderList.setDescription(createDto.getDescription());
+        orderList.setInAdvance(createDto.getInAdvance());
+        orderList.setMadeBy(authUserRepository.findByChatId(createDto.getMadeById()));
+        orderList.setName(createDto.getName());
+        orderList.setRegisteredDate(createDto.getRegisteredDate());
+
         repository.save(orderList);
         return new ResponseEntity<>(new DataDto<>(true), HttpStatus.CREATED);
     }

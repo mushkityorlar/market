@@ -16,9 +16,6 @@ import java.time.LocalDateTime;
 @Table(name = "output_product", schema = "market")
 public class OutputProduct extends Auditable implements BaseEntity {
 
-    @Column(nullable = false)
-    private double amount;
-
     private Double price;
 
     private Double discountedPrice;
@@ -26,6 +23,9 @@ public class OutputProduct extends Auditable implements BaseEntity {
     @ManyToOne
     @JoinColumn(name = "currency_id", referencedColumnName = "id")
     private Currency currency;
+
+    @Column(nullable = false)
+    private double amount;
 
     @ManyToOne
     @JoinColumn(name = "measurement_id", referencedColumnName = "id")
@@ -35,5 +35,4 @@ public class OutputProduct extends Auditable implements BaseEntity {
     @JoinColumn(name = "input_product_id")
     private InputProduct inputProduct;
 
-    private LocalDateTime expiry_date;
 }

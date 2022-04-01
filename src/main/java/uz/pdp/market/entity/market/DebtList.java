@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 @Table(name = "debt_list", schema = "market")
 public class DebtList extends Auditable implements BaseEntity {
 
+    private String name;
+
     @ManyToOne
     @JoinColumn(name = "lender_id" , referencedColumnName = "id")
     private AuthUser lender;
@@ -28,8 +30,9 @@ public class DebtList extends Auditable implements BaseEntity {
     @Column(length = 50)
     private String description;
 
-    @Column(nullable = false)
     private double amount;
+
+    private double price;
 
     @ManyToOne
     @JoinColumn(name = "currency_id" , referencedColumnName = "id")

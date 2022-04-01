@@ -25,6 +25,4 @@ public class Product extends Auditable {
     @JoinColumn(name = "category_id" , referencedColumnName = "id")
     private Category category;
 
-    @OneToMany
-    private List<Market> markets;
 }

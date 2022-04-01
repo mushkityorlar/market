@@ -1,6 +1,6 @@
 package uz.pdp.market.enums;
 
-public enum AuthRole {
+public enum Role {
     ADMIN,
     EMPLOYEE,
     USER,

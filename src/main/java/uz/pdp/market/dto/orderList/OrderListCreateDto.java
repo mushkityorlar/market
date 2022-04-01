@@ -1,10 +1,15 @@
 package uz.pdp.market.dto.orderList;
 
-import lombok.Builder;
+import lombok.*;
 import uz.pdp.market.dto.base.Dto;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class OrderListCreateDto implements Dto {
     private String categoryId;
 
@@ -25,19 +30,4 @@ public class OrderListCreateDto implements Dto {
     private String clientPhone;
 
     private String madeById;
-
-    @Builder()
-
-    public OrderListCreateDto(String categoryId, String name, String description, double amount, int inAdvance, String currencyId, LocalDateTime registeredDate, LocalDateTime completeDate, String clientPhone, String madeById) {
-        this.categoryId = categoryId;
-        this.name = name;
-        this.description = description;
-        this.amount = amount;
-        this.inAdvance = inAdvance;
-        this.currencyId = currencyId;
-        this.registeredDate = registeredDate;
-        this.completeDate = completeDate;
-        this.clientPhone = clientPhone;
-        this.madeById = madeById;
-    }
 }

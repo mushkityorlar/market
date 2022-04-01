@@ -6,7 +6,7 @@ import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.BaseEntity;
 import uz.pdp.market.entity.market.Market;
 import uz.pdp.market.entity.organization.Organization;
-import uz.pdp.market.enums.AuthRole;
+import uz.pdp.market.enums.Role;
 
 import javax.persistence.*;
 
@@ -35,7 +35,7 @@ public class AuthUser extends Auditable implements BaseEntity,GrantedAuthority {
     private String phone;
 
     @Enumerated(EnumType.STRING)
-    private AuthRole role;
+    private Role role;
 
     @ManyToOne
     @JoinColumn(name = "market_id" , referencedColumnName = "id")
