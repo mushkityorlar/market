@@ -26,14 +26,14 @@ public class Income extends Auditable implements BaseEntity {
     private double amount;
 
     @ManyToOne
-    @JoinColumn(name = "measurement_id" , referencedColumnName = "id")
+    @JoinColumn(name = "measurement_id", referencedColumnName = "id")
     private Measurement measurement;
 
     @Column(nullable = false, length = 50)
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name = "currency_id" , referencedColumnName = "id")
+    @JoinColumn(name = "currency_id", referencedColumnName = "id")
     private Currency currency;
 
     private LocalDateTime date;

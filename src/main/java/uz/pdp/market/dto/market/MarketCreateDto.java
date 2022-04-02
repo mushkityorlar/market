@@ -4,7 +4,7 @@ import lombok.Builder;
 import uz.pdp.market.dto.base.Dto;
 
 public class MarketCreateDto implements Dto {
-    private String name;
+    private final String name;
 
     @Builder()
     public MarketCreateDto(String name) {

@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
 @Slf4j
 @RestController
 public class AuthController extends AbstractController<AuthUserService> {

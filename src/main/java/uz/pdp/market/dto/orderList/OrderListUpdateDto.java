@@ -7,25 +7,25 @@ import java.time.LocalDateTime;
 
 public class OrderListUpdateDto extends GenericDto {
 
-    private String categoryId;
+    private final String categoryId;
 
-    private String name;
+    private final String name;
 
-    private String description;
+    private final String description;
 
-    private double amount;
+    private final double amount;
 
-    private int inAdvance;
+    private final int inAdvance;
 
-    private String currencyId;
+    private final String currencyId;
 
-    private LocalDateTime registeredDate;
+    private final LocalDateTime registeredDate;
 
-    private LocalDateTime completeDate;
+    private final LocalDateTime completeDate;
 
-    private String clientPhone;
+    private final String clientPhone;
 
-    private String madeById;
+    private final String madeById;
 
     @Builder(builderMethodName = "childBuilder")
 

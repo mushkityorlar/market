@@ -1,6 +1,5 @@
 package uz.pdp.market.service.orderList;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -43,7 +42,6 @@ public class OrderListService extends AbstractService<OrderListRepository, Order
         orderList.setCompleteDate(createDto.getCompleteDate());
         orderList.setDescription(createDto.getDescription());
         orderList.setInAdvance(createDto.getInAdvance());
-        orderList.setMadeBy(authUserRepository.findByChatId(createDto.getMadeById()));
         orderList.setName(createDto.getName());
         orderList.setRegisteredDate(createDto.getRegisteredDate());
 

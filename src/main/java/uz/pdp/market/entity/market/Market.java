@@ -19,12 +19,12 @@ public class Market extends Auditable implements BaseEntity {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "market_id",referencedColumnName = "id")
+    @JoinColumn(name = "market_id", referencedColumnName = "id")
     private MarketType type;
 
     private boolean active;
 
     @ManyToOne
-    @JoinColumn(name = "organization_id" , referencedColumnName = "id")
+    @JoinColumn(name = "organization_id", referencedColumnName = "id")
     private Organization organization;
 }

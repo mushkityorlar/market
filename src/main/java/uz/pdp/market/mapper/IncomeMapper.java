@@ -5,11 +5,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.springframework.stereotype.Component;
-import uz.pdp.market.dto.currency.CurrencyUpdateDto;
 import uz.pdp.market.dto.income.IncomeCreateDto;
 import uz.pdp.market.dto.income.IncomeDto;
 import uz.pdp.market.dto.income.IncomeUpdateDto;
-import uz.pdp.market.entity.market.Currency;
 import uz.pdp.market.entity.market.Income;
 
 import java.util.List;

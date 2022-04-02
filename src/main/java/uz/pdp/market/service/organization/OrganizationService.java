@@ -88,7 +88,7 @@ public class OrganizationService extends AbstractService<
 
     @Override
     public ResponseEntity<DataDto<OrganizationDto>> get(Long id) {
-        return new ResponseEntity<>(new DataDto<>(mapper.toDto(repository.getById(id))),HttpStatus.OK);
+        return new ResponseEntity<>(new DataDto<>(mapper.toDto(repository.getById(id))), HttpStatus.OK);
     }
 }
 

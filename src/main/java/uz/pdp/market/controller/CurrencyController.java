@@ -20,7 +20,8 @@ public class CurrencyController extends AbstractController<CurrencyService> {
 
     @RequestMapping(value = PATH + "/currency", method = RequestMethod.POST)
     public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody CurrencyCreateDto dto) {
-        return service.create(dto);}
+        return service.create(dto);
+    }
 
     @RequestMapping(value = PATH + "/currency", method = RequestMethod.GET)
     public ResponseEntity<DataDto<List<CurrencyDto>>> getAll() {

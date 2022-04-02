@@ -18,7 +18,7 @@ public interface OrganizationMapper extends BaseMapper<
         Organization,
         OrganizationDto,
         OrganizationCreateDto,
-        OrganizationUpdateDto>{
+        OrganizationUpdateDto> {
 
     @Override
     OrganizationDto toDto(Organization organization);

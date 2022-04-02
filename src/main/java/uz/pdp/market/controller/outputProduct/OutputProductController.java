@@ -19,28 +19,28 @@ public class OutputProductController extends AbstractController<OutputProductSer
         super(service);
     }
 
-    @PostMapping(value = PATH+"/outputProduct")
-    public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody OutputProductCreateDto createDto){
+    @PostMapping(value = PATH + "/outputProduct")
+    public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody OutputProductCreateDto createDto) {
         return service.create(createDto);
     }
 
-    @PutMapping(value = PATH+"/outputProduct")
-    public ResponseEntity<DataDto<Boolean>> update(@Valid @RequestBody OutputProductUpdateDto updateDto){
+    @PutMapping(value = PATH + "/outputProduct")
+    public ResponseEntity<DataDto<Boolean>> update(@Valid @RequestBody OutputProductUpdateDto updateDto) {
         return service.update(updateDto);
     }
 
-    @DeleteMapping(value = PATH+"/outputProduct/{id}")
-    public ResponseEntity<DataDto<Boolean>> delete(@PathVariable Long id){
+    @DeleteMapping(value = PATH + "/outputProduct/{id}")
+    public ResponseEntity<DataDto<Boolean>> delete(@PathVariable Long id) {
         return service.delete(id);
     }
 
-    @GetMapping(value = PATH+"/outputProduct/{id}")
-    public ResponseEntity<DataDto<OutputProductDto>> get(@PathVariable Long id){
+    @GetMapping(value = PATH + "/outputProduct/{id}")
+    public ResponseEntity<DataDto<OutputProductDto>> get(@PathVariable Long id) {
         return service.get(id);
     }
 
-    @GetMapping(value = PATH+"/outputProduct")
-    public ResponseEntity<DataDto<List<OutputProductDto>>> getAll(){
+    @GetMapping(value = PATH + "/outputProduct")
+    public ResponseEntity<DataDto<List<OutputProductDto>>> getAll() {
         return service.getAll();
     }
 }

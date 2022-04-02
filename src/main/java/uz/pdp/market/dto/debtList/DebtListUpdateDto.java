@@ -1,9 +1,6 @@
 package uz.pdp.market.dto.debtList;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import uz.pdp.market.dto.base.GenericDto;
 
 import java.time.LocalDateTime;
@@ -11,15 +8,23 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class DebtListUpdateDto extends GenericDto {
+
+    private String name;
 
     private String lenderId;
 
-    private String borrowerId;
+    private String borrowerName;
+
+    private String borrowerPhone;
 
     private String description;
 
     private double amount;
+
+    private String measurementId;
 
     private String currencyId;
 
@@ -27,16 +32,4 @@ public class DebtListUpdateDto extends GenericDto {
 
     private LocalDateTime returnDate;
 
-    @Builder
-
-    public DebtListUpdateDto(Long id, String lenderId, String borrowerId, String description, double amount, String currencyId, LocalDateTime getDate, LocalDateTime returnDate) {
-        super(id);
-        this.lenderId = lenderId;
-        this.borrowerId = borrowerId;
-        this.description = description;
-        this.amount = amount;
-        this.currencyId = currencyId;
-        this.getDate = getDate;
-        this.returnDate = returnDate;
-    }
 }

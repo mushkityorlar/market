@@ -5,9 +5,9 @@ import uz.pdp.market.dto.base.GenericDto;
 
 public class MarketUpdateDto extends GenericDto {
 
-    private String name;
+    private final String name;
 
-    private boolean active;
+    private final boolean active;
 
     @Builder(builderMethodName = "childBuilder")
     public MarketUpdateDto(Long id, String name, boolean active) {

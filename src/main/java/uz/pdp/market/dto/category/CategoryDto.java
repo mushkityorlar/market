@@ -1,22 +1,16 @@
 package uz.pdp.market.dto.category;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import uz.pdp.market.dto.base.GenericDto;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class CategoryDto extends GenericDto {
-    private String name;
-    private boolean active;
 
-    @Builder(builderMethodName = "childBuilder")
-    public CategoryDto(Long id, String name, boolean active) {
-        super(id);
-        this.active = active;
-        this.name = name;
-    }
+    private String name;
+
+    private boolean active;
 }

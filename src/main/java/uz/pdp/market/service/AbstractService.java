@@ -7,7 +7,7 @@ import uz.pdp.market.utils.validator.Validator;
 public abstract class AbstractService<
         R extends AbstractRepository,
         M extends Mapper,
-        V extends Validator>{
+        V extends Validator> {
 
     protected final R repository;
     protected final M mapper;

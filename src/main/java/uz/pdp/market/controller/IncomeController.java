@@ -18,28 +18,28 @@ public class IncomeController extends AbstractController<IncomeService> {
         super(service);
     }
 
-    @PostMapping(value = PATH+"/income")
-    public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody IncomeCreateDto createDto){
+    @PostMapping(value = PATH + "/income")
+    public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody IncomeCreateDto createDto) {
         return service.create(createDto);
     }
 
-    @PutMapping(value = PATH+"/income")
-    public ResponseEntity<DataDto<Boolean>> update(@Valid @RequestBody IncomeUpdateDto updateDto){
+    @PutMapping(value = PATH + "/income")
+    public ResponseEntity<DataDto<Boolean>> update(@Valid @RequestBody IncomeUpdateDto updateDto) {
         return service.update(updateDto);
     }
 
-    @DeleteMapping(value = PATH+"/income/{id}")
-    public ResponseEntity<DataDto<Boolean>> delete(@PathVariable Long id){
+    @DeleteMapping(value = PATH + "/income/{id}")
+    public ResponseEntity<DataDto<Boolean>> delete(@PathVariable Long id) {
         return service.delete(id);
     }
 
-    @GetMapping(value = PATH+"/income/{id}")
-    public ResponseEntity<DataDto<IncomeDto>> get(@PathVariable Long id){
+    @GetMapping(value = PATH + "/income/{id}")
+    public ResponseEntity<DataDto<IncomeDto>> get(@PathVariable Long id) {
         return service.get(id);
     }
 
-    @GetMapping(value = PATH+"/income")
-    public ResponseEntity<DataDto<List<IncomeDto>>> getAll(){
+    @GetMapping(value = PATH + "/income")
+    public ResponseEntity<DataDto<List<IncomeDto>>> getAll() {
         return service.getAll();
     }
 }

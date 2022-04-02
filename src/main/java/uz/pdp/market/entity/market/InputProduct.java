@@ -21,7 +21,7 @@ public class InputProduct extends Auditable implements BaseEntity {
     private Product product;
 
     @Column(nullable = false)
-    private Integer amount;
+    private double amount;
 
     @ManyToOne
     @JoinColumn(name = "measurement_id", referencedColumnName = "id")

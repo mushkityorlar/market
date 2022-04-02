@@ -1,7 +1,6 @@
 package uz.pdp.market.entity.market;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
 import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.Entity;

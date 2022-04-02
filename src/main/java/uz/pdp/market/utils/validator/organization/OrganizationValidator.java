@@ -11,7 +11,7 @@ import javax.validation.ValidationException;
 
 
 @Component
-public class OrganizationValidator extends AbstractValidator<OrganizationCreateDto, OrganizationUpdateDto,Long> implements Validator {
+public class OrganizationValidator extends AbstractValidator<OrganizationCreateDto, OrganizationUpdateDto, Long> implements Validator {
     protected OrganizationValidator(BaseUtils baseUtils) {
         super(baseUtils);
     }

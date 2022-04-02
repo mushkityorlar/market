@@ -4,15 +4,15 @@ import lombok.Builder;
 import uz.pdp.market.dto.base.GenericDto;
 
 public class ProductUpdateDto extends GenericDto {
-    private String name;
+    private final String name;
 
-    private String imgPath;
+    private final String imgPath;
 
-    private String code;
+    private final String code;
 
-    private String inCome;
+    private final String inCome;
 
-    private String outCome;
+    private final String outCome;
 
     @Builder(builderMethodName = "childBuilder")
     public ProductUpdateDto(Long id, String name, String imgPath, String code, String inCome, String outCome) {

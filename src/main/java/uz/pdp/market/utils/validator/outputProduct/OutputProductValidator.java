@@ -9,7 +9,7 @@ import uz.pdp.market.utils.validator.AbstractValidator;
 import javax.validation.ValidationException;
 
 @Component
-public class OutputProductValidator extends AbstractValidator<OutputProductCreateDto, OutputProductUpdateDto,Long> {
+public class OutputProductValidator extends AbstractValidator<OutputProductCreateDto, OutputProductUpdateDto, Long> {
     protected OutputProductValidator(BaseUtils baseUtils) {
         super(baseUtils);
     }

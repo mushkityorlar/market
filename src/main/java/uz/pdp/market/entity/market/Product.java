@@ -5,7 +5,6 @@ import lombok.*;
 import uz.pdp.market.entity.Auditable;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -22,7 +21,7 @@ public class Product extends Auditable {
     private String imgPath;
 
     @ManyToOne
-    @JoinColumn(name = "category_id" , referencedColumnName = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
 }

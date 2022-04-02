@@ -18,7 +18,7 @@ public interface OutputProductMapper extends BaseMapper<
         OutputProduct,
         OutputProductDto,
         OutputProductCreateDto,
-        OutputProductUpdateDto>{
+        OutputProductUpdateDto> {
 
     @Override
     OutputProductDto toDto(OutputProduct outputProduct);

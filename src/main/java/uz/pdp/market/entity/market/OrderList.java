@@ -3,7 +3,6 @@ package uz.pdp.market.entity.market;
 import lombok.*;
 import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.BaseEntity;
-import uz.pdp.market.entity.auth.AuthUser;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,7 +17,7 @@ import java.time.LocalDateTime;
 public class OrderList extends Auditable implements BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "category_id" , referencedColumnName = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
     @Column(length = 50)
@@ -31,13 +30,13 @@ public class OrderList extends Auditable implements BaseEntity {
     private double amount;
 
     @ManyToOne
-    @JoinColumn(name = "measurement_id",referencedColumnName = "id")
+    @JoinColumn(name = "measurement_id", referencedColumnName = "id")
     private Measurement measurement;
 
     private int inAdvance;
 
     @ManyToOne
-    @JoinColumn(name = "currency_id" , referencedColumnName = "id")
+    @JoinColumn(name = "currency_id", referencedColumnName = "id")
     private Currency currency;
 
     private LocalDateTime registeredDate;

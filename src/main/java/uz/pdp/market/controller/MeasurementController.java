@@ -17,6 +17,7 @@ public class MeasurementController extends AbstractController<MeasurementService
     public MeasurementController(MeasurementService service) {
         super(service);
     }
+
     @RequestMapping(value = PATH + "/measurement", method = RequestMethod.POST)
     public ResponseEntity<DataDto<Long>> create(@Valid @RequestBody MeasurementCreateDto dto) {
         return service.create(dto);

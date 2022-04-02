@@ -5,7 +5,6 @@ import uz.pdp.market.entity.Auditable;
 import uz.pdp.market.entity.BaseEntity;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter

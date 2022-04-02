@@ -1,25 +1,26 @@
 package uz.pdp.market.dto.inputProduct;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import uz.pdp.market.dto.base.Dto;
+import uz.pdp.market.entity.market.Currency;
+import uz.pdp.market.entity.market.Market;
 import uz.pdp.market.entity.market.Measurement;
+import uz.pdp.market.entity.market.Product;
 
 import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class InputProductCreateDto implements Dto {
-    @Schema(required = true)
-    private String productId;
 
-    private Integer amount;
+    private Product product;
 
-    private Measurement measurement;
+    private double amount;
+
+    private long measurementId;
 
     private Double incomePrice;
 
@@ -27,17 +28,7 @@ public class InputProductCreateDto implements Dto {
 
     private Date expireDate;
 
-    private String currencyId;
+    private long currencyId;
 
-    @Builder()
-
-    public InputProductCreateDto(String productId, Integer amount, Measurement measurement, Double incomePrice, Double outcomePrice, Date expireDate, String currencyId) {
-        this.productId = productId;
-        this.amount = amount;
-        this.measurement = measurement;
-        this.incomePrice = incomePrice;
-        this.outcomePrice = outcomePrice;
-        this.expireDate = expireDate;
-        this.currencyId = currencyId;
-    }
+    private long marketId;
 }

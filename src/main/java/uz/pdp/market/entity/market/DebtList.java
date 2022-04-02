@@ -20,22 +20,26 @@ public class DebtList extends Auditable implements BaseEntity {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "lender_id" , referencedColumnName = "id")
+    @JoinColumn(name = "lender_id", referencedColumnName = "id")
     private AuthUser lender;
 
-    @ManyToOne
-    @JoinColumn(name = "borrow_id" , referencedColumnName = "id")
-    private AuthUser borrower;
+    private String borrowerName;
+
+    private String borrowerPhone;
 
     @Column(length = 50)
     private String description;
 
     private double amount;
 
+    @OneToOne
+    @JoinColumn(name = "measurement_id",referencedColumnName = "id")
+    private Measurement measurement;
+
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "currency_id" , referencedColumnName = "id")
+    @JoinColumn(name = "currency_id", referencedColumnName = "id")
     private Currency currency;
 
     private LocalDateTime getDate;

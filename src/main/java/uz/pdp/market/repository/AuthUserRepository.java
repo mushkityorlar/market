@@ -9,7 +9,7 @@ import uz.pdp.market.entity.auth.AuthUser;
 
 import java.util.Optional;
 
-public interface AuthUserRepository extends JpaRepository<AuthUser, Long>,AbstractRepository {
+public interface AuthUserRepository extends JpaRepository<AuthUser, Long>, AbstractRepository {
 
     @Query(value = "from AuthUser a where a.chatId=:id")
     AuthUser findByChatId(@Param("id") String id);

@@ -9,7 +9,6 @@ import uz.pdp.market.dto.inputProduct.InputProductCreateDto;
 import uz.pdp.market.dto.inputProduct.InputProductDto;
 import uz.pdp.market.dto.inputProduct.InputProductUpdateDto;
 import uz.pdp.market.entity.market.InputProduct;
-import uz.pdp.market.mapper.BaseMapper;
 
 import java.util.List;
 

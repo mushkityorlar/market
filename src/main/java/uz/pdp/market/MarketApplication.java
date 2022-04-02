@@ -52,6 +52,7 @@ public class MarketApplication {
         };
 
     }
+
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
         return builder

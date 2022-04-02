@@ -4,15 +4,15 @@ import lombok.Builder;
 import uz.pdp.market.dto.base.Dto;
 
 public class ProductCreateDto implements Dto {
-    private String name;
+    private final String name;
 
-    private String imgPath;
+    private final String imgPath;
 
-    private String code;
+    private final String code;
 
-    private String inCome;
+    private final String inCome;
 
-    private String outCome;
+    private final String outCome;
 
 
     @Builder()
