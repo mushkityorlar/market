@@ -42,6 +42,8 @@ public class OutputProductService extends AbstractService<
     public ResponseEntity<DataDto<Long>> create(OutputProductCreateDto createDto) {
         OutputProduct outputProduct = mapper.fromCreateDto(createDto);
 
+        // shunga qarab qolgan barcha service larni korib tog'irlab chiqish kk please
+
         InputProduct inputProduct = new InputProduct();
         inputProduct.setId(createDto.getInputProductId());
 
